@@ -21,25 +21,24 @@
   </head>
 
   <body>
-      <style>
-      body {margin: 30px}
-      </style>
-        <div class="ui container">
-          <div class="ui black six item inverted menu">
+    <div class="ui container">
+      <div class="ui black six item inverted menu">
+          <a class="ui item" href="<%= root_path %>">Home</a>
+          <a class="ui item" href="<%= books_path %>">Books</a>
+          <a class="ui item" href="<%= users_path %>">Users</a>
+          <a class="ui item" href="<%= discussions_path %>">Discussions</a>
 
-              <a class="ui item" href="<%= root_path %>">Home</a>
-              <a class="ui item" href="<%= books_path %>">Books</a>
-              <a class="ui item" href="<%= users_path %>">Users</a>
-              <a class="ui item" href="<%= discussions_path %>">Discussions</a>
+          <% if session[:current_user_id] %>
+            <% @current_user = User.find(session[:current_user_id]) %>
+             <a class="ui item" href="<%= user_path(@current_user) %>">Hello, <%= @current_user.name %></a>
+             <a class="ui item" href="<%= logout_path %>" data-method="delete">Logout</a>
+          <% end %>
+      </div>
+    </div>
 
-              <% if session[:current_user_id] %>
-                <% @current_user = User.find(session[:current_user_id]) %>
-                 <a class="ui item" href="<%= user_path(@current_user) %>">Hello, <%= @current_user.name %></a>
-                 <a class="ui item" href="<%= logout_path %>" data-method="delete">Logout</a>
-              <% end %>
-          </div>
-        </div>
-
-    <%= yield %>
+    <div class="site-pages">
+      <%= yield %>
+    </div>
+    
   </body>
 </html>

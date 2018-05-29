@@ -9,16 +9,13 @@
   </div>
 <% end %>
 
-
-
-<br><br>
-
-    <h1 class="ui huge dividing header centered">
-      BOOKS
-      <br><br>
-      <%= button_to "Suggested for YOU", '/suggested_books', method: 'get', class: "ui inverted blue button" %>
-      <br>
-    </h1>
+<br>
+  <h1 class="ui huge dividing header centered">
+    BOOKS
+    <br><br>
+    <%= button_to "Suggested for YOU", '/suggested_books', method: 'get', class: "ui inverted blue button" %>
+    <br>
+  </h1>
 
 <br><br>
 <div class="ui two column centered grid">
@@ -45,7 +42,7 @@
 </div>
 
 <br><br>
-<div class="jumbotron">
+<div id="carousel-div" class="jumbotron">
 
   <h1 class="ui header centered">
     Popular Books
@@ -56,7 +53,7 @@
 
       <!--Controls-->
       <div class="controls-top">
-        <div class="ui center aligned segment">
+        <div id="button-segment" class="ui center aligned segment">
 
           <a class="ui blue centered button" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i>Back</a>
           <a class="ui blue centered button" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i>Next</a>
@@ -81,7 +78,7 @@
             <div class="ui six column grid">
               <% @books.sample(6).each do |book| %>
               <div class="column">
-                <div class="ui fluid card">
+                <div class="ui fluid card books">
                   <div class="ui image">
                     <%= image_tag "#{book.image}", class: "ui image" %>
                   </div>
@@ -101,7 +98,7 @@
             <div class="ui six column grid">
               <% @books.sample(6).each do |book| %>
               <div class="column">
-                <div class="ui fluid card">
+                <div class="ui fluid card books">
                   <div class="ui image">
                     <%= image_tag "#{book.image}", class: "ui image" %>
                   </div>
@@ -121,7 +118,7 @@
             <div class="ui six column grid">
               <% @books.sample(6).each do |book| %>
               <div class="column">
-                <div class="ui fluid card">
+                <div class="ui fluid card books">
                   <div class="ui image">
                     <%= image_tag "#{book.image}", class: "ui image" %>
                   </div>
@@ -155,21 +152,17 @@
 
     <div class="ui six column grid">
       <% Tag.all.sample(30).each do |tag| %>
-      <div class="column">
-        <%= form_tag '/users/add_tag', method: 'post' do %>
-          <%= hidden_field_tag :tag_id, tag.id %>
-          <%= submit_tag "#" + "#{tag.name.split(' ')[0]}", class: "ui inverted blue button" %>
-        <% end %>
-      </div>
+        <div class="column">
+          <%= form_tag '/users/add_tag', method: 'post' do %>
+            <%= hidden_field_tag :tag_id, tag.id %>
+            <%= submit_tag "#" + "#{tag.name.split(' ')[0]}", class: "ui inverted blue button" %>
+          <% end %>
+        </div>
       <% end %>
   </div>
 
 
-
-
-
 <br><br><br><br>
-
 
 
 <!-- Display all books w/ little image

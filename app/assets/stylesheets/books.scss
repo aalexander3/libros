@@ -1,3 +1,20 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#button-segment {
+  box-shadow: none;
+  background: none;
+}
+
+.ui.fluid.card.books {
+  height: 18rem;
+}
+
+.ui.fluid.card.books img{
+  height: 14rem;
+}
+
+#carousel-div {
+  height: 37rem;
+}
