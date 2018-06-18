@@ -9,7 +9,7 @@ Check out https://sleepy-dusk-31861.herokuapp.com/ for a demo.\  Feel free to ma
   *OR*\
   Login Credentials: \
   username: demo\
-  password: 1234\
+  password: 1234
 
 # Built With
 * Ruby
